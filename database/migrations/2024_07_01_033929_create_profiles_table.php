@@ -20,11 +20,12 @@ return new class extends Migration
             $table->string('linkedin', 100)->nullable();
             $table->string('facebook', 100)->nullable();;
 
+            //Relación uno a uno (user - profile)
             $table->UnsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
-                ->onDelete('cascade');
+                ->onDelete('cascade')
                 ->onUpdate('cascade');
 
             $table->timestamps();
