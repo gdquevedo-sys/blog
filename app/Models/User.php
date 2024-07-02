@@ -48,5 +48,10 @@ class User extends Authenticatable
         public function profile(){
             return $this->hasOne(Profile::class);
         }
+
+        //Relación de uno a muchos (user-article)
+        public function articles(){
+            return $this->hasMany(Article::class);
+        }
     }
 }
