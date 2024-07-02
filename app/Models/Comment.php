@@ -15,4 +15,9 @@ class Comment extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    //Relación de uno a muchos (comment-article)
+    public function article(){
+        return $this->belongsTo(Article::class);
+    }
 }
