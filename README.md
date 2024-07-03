@@ -1,4 +1,8 @@
 # Blog en Laravel
+## Requisitos
+- PHP v.8.2.12
+- Composer v.2.7.7
+- Node.js v.20.11.1
 
 ## Instrucciones
 - Clonar el repositorio usando el comando 'git clone <url>'
