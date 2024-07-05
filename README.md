@@ -14,4 +14,4 @@
 - Ejecutar el proyecto usando: 'php artisan serve'
 
 ### Funcionalidades
-- Login
+- cada vez que se quiere abrir la pagina se debe ejecutar 'php artisan serve' y 'npm run dev' y dejar este ultimo ejecutando
