@@ -7,24 +7,14 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
         #Obtener los articulos publicos (1)
@@ -38,7 +28,7 @@ class HomeController extends Controller
             ['is_featured', '1'],
         ])->paginate(3);
 
-        return view('home', compact('articles', 'navbar'))
+        return view('home.index', compact('articles', 'navbar'))
             ->simplePaginate(20);
     }
 
@@ -52,6 +42,6 @@ class HomeController extends Controller
             ['is_featured', '1'],
         ])->paginate(3);
 
-        return view('home', compact('categories', 'navbar'));
+        return view('home.all-categories', compact('categories', 'navbar'));
     }
 }
