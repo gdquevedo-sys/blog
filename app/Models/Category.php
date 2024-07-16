@@ -15,4 +15,10 @@ class Category extends Model
     public function articles(){
         return $this->hasMany(Article::class);
     }
+
+    //Utilizar el slug en lugar del id
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
