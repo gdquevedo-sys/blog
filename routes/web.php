@@ -29,6 +29,11 @@ Route::resource('comments', CommentController::class)
             ->only('index', 'destroy')
             ->names('comments');
 
+//Perfiles
+Route::resource('profiles', ProfileController::class)
+            ->only('edit', 'update')
+            ->names('profiles');
+
 //Ver articulos
 Route::get('article/{article}', [ArticleController::class, 'show'])->name('articles.show');
 
