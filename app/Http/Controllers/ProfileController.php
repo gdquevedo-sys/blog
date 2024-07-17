@@ -28,8 +28,17 @@ class ProfileController extends Controller
 
     public function show(Profile $profile)
     {
-        //
-    }
+        //Creamos una variable
+        $article=Article::where([
+            ['user_id', $profile->user_id],
+            ['status', '1']])->simplePaginate(8);
+
+        //Retornamos y enviamos la información a la vista
+        return view('subscriber.profile.show', compact('profile', 'articles'));
+
+        //Redirigir al usuario al formulario de editar perfil
+        return view('subscriber.profiles.edit', compact('profile'));
+    }    
 
     public function edit(Profile $profile)
     {
@@ -55,8 +64,16 @@ class ProfileController extends Controller
         //Asignar nombre y correo
         $user->name = $request->name;
         $user->email = $request->email;
-        //Asignar foto
+        //Asignar campos adicionales
+        $user->profile->profession = $request->profession;
+        $user->profile->about = $request->about;
         $user->profile->photo = $photo;
+        $user->profile->twitter = $request->twitter;
+        $user->profile->linkedin = $request->linkedin;
+        $user->profile->facebook = $request->facebook;
+
+        //Asignar foto
+        //$user->profile->photo = $photo;
 
         //Guardamos campos de usuario
         $user->save();

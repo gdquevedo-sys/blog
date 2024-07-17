@@ -18,6 +18,13 @@ class ProfileRequest extends FormRequest
             'name' => 'required',
             'email' => 'required',
             'photo' => 'nullable|mimes:jpeg, jpg, png',
+            
+            //Creamos las reglas de validación
+            'profession' => 'nullable|max:60',
+            'about' => 'nullable|max:255',
+            'twitter' => 'nullable|url',
+            'linkedin' => 'nullable|url',
+            'facebook' => 'nullable|url',
         ];
     }
 }
